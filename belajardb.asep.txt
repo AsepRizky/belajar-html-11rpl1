@@ -1,0 +1,132 @@
+Setting environment for using XAMPP for Windows.
+LENOVO@LAPTOP-OEBCPR2H c:\xampp
+# cd..
+'cd..' is not recognized as an internal or external command,
+operable program or batch file.
+
+LENOVO@LAPTOP-OEBCPR2H c:\xampp
+# cd..
+'cd..' is not recognized as an internal or external command,
+operable program or batch file.
+
+LENOVO@LAPTOP-OEBCPR2H c:\xampp
+# cd xampp
+The system cannot find the path specified.
+
+LENOVO@LAPTOP-OEBCPR2H c:\xampp
+# cd mysql
+
+LENOVO@LAPTOP-OEBCPR2H c:\xampp\mysql
+# cd bin
+
+LENOVO@LAPTOP-OEBCPR2H c:\xampp\mysql\bin
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.24-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| db_arzenna         |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| sekolah            |
+| test               |
++--------------------+
+7 rows in set (0.032 sec)
+
+MariaDB [(none)]> create db_asep;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'db_asep' at line 1
+MariaDB [(none)]> create databases db_asep;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'databases db_asep' at line 1
+MariaDB [(none)]> create database db_asep;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| db_arzenna         |
+| db_asep            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| sekolah            |
+| test               |
++--------------------+
+8 rows in set (0.001 sec)
+
+MariaDB [(none)]> use db_asep;
+Database changed
+MariaDB [db_asep]> desc tbl_asep;
+ERROR 1146 (42S02): Table 'db_asep.tbl_asep' doesn't exist
+MariaDB [db_asep]> show tables;
+Empty set (0.001 sec)
+
+MariaDB [db_asep]> use db_asep;
+Database changed
+MariaDB [db_asep]> create table tbl_asep (id_asep varchar(5),nama_murid varchar(10),alamat_murid varchar(100));
+Query OK, 0 rows affected (0.019 sec)
+
+MariaDB [db_asep]> show tables;
++-------------------+
+| Tables_in_db_asep |
++-------------------+
+| tbl_asep          |
++-------------------+
+1 row in set (0.001 sec)
+
+MariaDB [db_asep]> desc tbl_asep;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| id_asep      | varchar(5)   | YES  |     | NULL    |       |
+| nama_murid   | varchar(10)  | YES  |     | NULL    |       |
+| alamat_murid | varchar(100) | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+3 rows in set (0.019 sec)
+
+MariaDB [db_asep]> INSERT into tbl_arzenna (id_arzenna, nama_murid, alamat_murid) values ("1","arzenna haqi muhamad","sukamelang,subang,jawa barat");
+ERROR 1146 (42S02): Table 'db_asep.tbl_arzenna' doesn't exist
+MariaDB [db_asep]> INSERT into tbl_asep (id_asep, nama_murid, alamat_murid) values ("1","asep rizki","kalijati,subang,jawa barat");
+Query OK, 1 row affected (0.057 sec)
+
+MariaDB [db_asep]> show tables;
++-------------------+
+| Tables_in_db_asep |
++-------------------+
+| tbl_asep          |
++-------------------+
+1 row in set (0.001 sec)
+
+MariaDB [db_asep]> desc tbl_asep;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| id_asep      | varchar(5)   | YES  |     | NULL    |       |
+| nama_murid   | varchar(10)  | YES  |     | NULL    |       |
+| alamat_murid | varchar(100) | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+3 rows in set (0.016 sec)
+
+MariaDB [db_asep]> from tbl_asep;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from tbl_asep' at line 1
+MariaDB [db_asep]> select * from tbl_asep;
++---------+------------+----------------------------+
+| id_asep | nama_murid | alamat_murid               |
++---------+------------+----------------------------+
+| 1       | asep rizki | kalijati,subang,jawa barat |
++---------+------------+----------------------------+
+1 row in set (0.000 sec)
+
+MariaDB [db_asep]>
